@@ -1,0 +1,85 @@
+version: 2
+
+sources:
+  - name: dc_open_data_raw
+    description: A database which contains various data collected from DC's Open Data portal.
+    tables:
+      - name: vision_zero
+        columns: 
+          - name: object_id 
+            tests: 
+              - not_null
+              - unique
+          - name: global_id 
+            tests: 
+              - not_null
+              - unique
+          - name: request_id 
+          - name: request_type
+          - name: request_date 
+          - name: status 
+          - name: street_seg_id
+          - name: comments 
+          - name: user_type
+            tests:
+              - accepted_values: 
+                  values: ['Pedestrian', 'Biker',  'Car Driver']
+                  config: 
+                    serverity: warn
+      - name: crashes 
+        description: Crash locations associated along the District of Columbia roadway blocks network. A companion crash details related table also exists for download.
+        columns: 
+          - name: object_id
+          - name: crime_id 
+          - name: ccn
+          - name: report_date 
+          - name: route_id 
+          - name: measure  
+          - name: "offset"  
+          - name: street_seg_id 
+          - name: roadway_seg_id  
+          - name: from_date 
+          - name: address 
+          - name: latitude
+          - name: longitude
+          - name: x_coord 
+          - name: y_coord 
+          - name: ward 
+          - name: event_id  
+          - name: mar_address 
+          - name: mar_score 
+          - name: major_inuries__bicyclist 
+          - name: minor_injuries__bicyclist 
+          - name: unknown_injuries__bicyclist 
+          - name: fatal__bicyclist  
+          - name: major_injuries__driver
+          - name: minor_injuries__driver
+          - name: unknown_injuries__driver 
+          - name: fatal__driver  
+          - name: major_injuries__pedestrian 
+          - name: minor_injuries__pedestrian 
+          - name: unknown_injuries__pedestrian 
+          - name: major_injuries__passenger 
+          - name: minor_injuries__passenger  
+          - name: unknown_injuries__passenger 
+          - name: fatal__passenger 
+          - name: total_vehicles  
+          - name: total_bicycles 
+          - name: total_pedestrians 
+          - name: total_taxis 
+          - name: total_government 
+          - name: pedestrians_impaired 
+          - name: bicyclists_impaired 
+          - name: drivers_impaired 
+          - name: speeding_involved 
+          - name: nearest_int_route_id 
+          - name: nearest_int_street_name 
+          - name: off_intersection 
+          - name: int_approach_direction 
+          - name: mar_id 
+          - name: location_error
+          - name: last_update_date
+          - name: mpd_latitude 
+          - name: mpd_longitude
+          - name: mpd_geo_x 
+          - name: mpd_geo_y 
