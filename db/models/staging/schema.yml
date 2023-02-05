@@ -56,7 +56,7 @@ sources:
               - unique
           - name: mar_address 
           - name: mar_score 
-          - name: major_inuries__bicyclist 
+          - name: major_injuries__bicyclist 
           - name: minor_injuries__bicyclist 
           - name: unknown_injuries__bicyclist 
           - name: fatal__bicyclist  

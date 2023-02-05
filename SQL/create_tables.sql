@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS dc_open_data_raw.crashes (
   event_id VARCHAR, 
   mar_address VARCHAR, 
   mar_score DECIMAL, 
-  major_inuries__bicyclist INT, 
+  major_injuries__bicyclist INT, 
   minor_injuries__bicyclist INT,
   unknown_injuries__bicyclist INT,
   fatal__bicyclist INT, 
