@@ -43,3 +43,4 @@ SELECT
   nearest_int_street_name AS geo__nearest_int_street_name, 
   off_intersection AS geo__off_intersection
 FROM {{ ref("raw__crashes") }}
+WHERE EXTRACT(YEAR FROM report_date) <= EXTRACT(YEAR FROM CURRENT_DATE)
