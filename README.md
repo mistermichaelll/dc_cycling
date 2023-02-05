@@ -1,6 +1,6 @@
 # DC Open Data
-This repository has some code I'm using to work with DC's Open Data portal. Currently, this includes:
-1) R scripts used to pull data from the API and push this to a local postgres database
+This repository has some code I'm using to work with [DC's Open Data portal](https://opendata.dc.gov/). Currently, this includes:
+1) R scripts used to pull data from the API, clean up some column names, and then push this data to a local postgres database
 2) a dbt project to clean up data in the database
 3) any SQL used to generate schemas, queries, etc. from the local postgres database
 # Motivation
