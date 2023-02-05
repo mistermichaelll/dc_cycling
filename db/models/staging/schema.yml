@@ -30,7 +30,13 @@ sources:
         description: Crash locations associated along the District of Columbia roadway blocks network. A companion crash details related table also exists for download.
         columns: 
           - name: object_id
+            tests:
+              - unique
+              - not_null
           - name: crime_id 
+            tests: 
+              - unique 
+              - not_null
           - name: ccn
           - name: report_date 
           - name: route_id 
@@ -46,6 +52,8 @@ sources:
           - name: y_coord 
           - name: ward 
           - name: event_id  
+            tests:
+              - unique
           - name: mar_address 
           - name: mar_score 
           - name: major_inuries__bicyclist 
@@ -77,6 +85,8 @@ sources:
           - name: off_intersection 
           - name: int_approach_direction 
           - name: mar_id 
+            tests:
+              - not_null
           - name: location_error
           - name: last_update_date
           - name: mpd_latitude 
