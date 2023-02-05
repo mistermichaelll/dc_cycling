@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: dc_open_data_raw
+    description: A database which contains various data collected from DC's Open Data portal.
+    tables: 
+      - name: vision_zero
+        columns: 
+          - name: object_id 
+            tests: 
+              - not_null
+              - unique
+          - name: global_id 
+            tests: 
+              - not_null
+              - unique
+          - name: request_id 
+          - name: request_type
+          - name: request_date 
+          - name: status 
+          - name: street_seg_id
+          - name: comments 
+          - name: user_type
+            tests:
+              - accepted_values: 
+                  values: ['Pedestrian', 'Biker',  'Car Driver']
+                  config: 
+                    serverity: warn
