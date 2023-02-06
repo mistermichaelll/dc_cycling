@@ -38,6 +38,10 @@ get_dc_crashes_data <- function (rate_limit = 1000, offset = 0) {
     offset <- offset + n_responses
   }
   
+  if (offset > 0 & length(results_list) == 0) {
+    stop("Offset of this length returned no results, do you already have all the results?")
+  }
+  
   results_list |> 
     map_dfr(
       ~pluck(.x, "properties")

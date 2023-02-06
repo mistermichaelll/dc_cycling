@@ -31,3 +31,12 @@ write_to_db <- function(conn, table_name, table, ...) {
     ...
   )
 }
+
+find_offset <- function(conn, table_name) {
+  result <- DBI::dbGetQuery(
+    conn, 
+    paste("SELECT COUNT(*) FROM", table_name, sep = " ")
+  )
+  
+  result |> pull()
+}

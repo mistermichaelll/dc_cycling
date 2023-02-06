@@ -1,8 +1,11 @@
 source("api_scripts/crashes.R")
 source("api_scripts/vision_zero.R")
+source("utils.R")
 
-dc_crashes_raw <- get_dc_crashes_data()
-vision_zero_raw <- get_vision_zero_data()
+conn <- connect_to_db()
+
+dc_crashes_raw <- get_dc_crashes_data(offset = find_offset(conn, "dc_open_data_raw.crashes"))
+vision_zero_raw <- get_vision_zero_data(offset = find_offset(conn, "dc_open_data_raw.vision_zero"))
 
 dc_crashes_clean_names <- dc_crashes_raw |> 
   select(
