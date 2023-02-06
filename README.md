@@ -5,12 +5,17 @@ This repository has some code I'm using to work with [DC's Open Data portal](htt
 3) any SQL used to generate schemas, queries, etc. from the local postgres database
 
 # Motivation
-Working with data from the API can be cumbersome - especially when there are hundreds of thousands of records and a rate limit of 1000. My solution to this was to spin up a local postgres server, collect the data + do a bit of name cleanup in R, populate the postgres database, then use dbt to test the raw data + clean it up for analysis. 
+Working with data from the API can be a bit annoying/time-consuming. Many of the datasets available have hundreds of thousands of records, and the API has a rate limit of 1000 records per request. My solution to this was to spin up a local postgres server, collect the data + do a bit of name cleanup in R, populate the postgres database, then use dbt to run some tests against the raw data + clean it up for analysis.
 
-Having this local SQL server means that I can update it when new data is available and avoid making thousands of API calls before doing any kind of analysis.
+With this data now being available to me via SQL, it makes doing analysis quite a bit easier than having to tap the API every time I want a data source. In addition, using the `offset` in the API functions I wrote, I can append new data to the tables easily.
 
 # Example of Use
-When my postgres server is running, I can do some pretty quick analysis with SQL–integrated into R this makes it pretty easy to do something like this:
+In the terminal, I can spin up my postgres dataset using brew:
+```
+brew services start postgresql@14
+```
+
+Now, instead of using the API directly, I can access information via SQL. This is quite powerful combined with R, since I can query the dataset directly and do things like plotting:
 
 ```r
 library(ggplot2)
