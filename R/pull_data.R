@@ -1,8 +1,11 @@
 source("api_scripts/crashes.R")
 source("api_scripts/vision_zero.R")
+source("utils.R")
 
-dc_crashes_raw <- get_dc_crashes_data()
-vision_zero_raw <- get_vision_zero_data()
+conn <- connect_to_db()
+
+dc_crashes_raw <- get_dc_crashes_data(offset = find_offset(conn, "dc_open_data_raw.crashes"))
+vision_zero_raw <- get_vision_zero_data(offset = find_offset(conn, "dc_open_data_raw.vision_zero"))
 
 dc_crashes_clean_names <- dc_crashes_raw |> 
   select(
@@ -25,7 +28,7 @@ dc_crashes_clean_names <- dc_crashes_raw |>
     event_id = EVENTID, 
     mar_address = MAR_ADDRESS, 
     mar_score = MAR_SCORE, 
-    major_inuries__bicyclist = MAJORINJURIES_BICYCLIST, 
+    major_injuries__bicyclist = MAJORINJURIES_BICYCLIST, 
     minor_injuries__bicyclist = MINORINJURIES_BICYCLIST,
     unknown_injuries__bicyclist = UNKNOWNINJURIES_BICYCLIST,
     fatal__bicyclist = FATAL_BICYCLIST, 

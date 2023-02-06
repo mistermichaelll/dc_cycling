@@ -1,0 +1,51 @@
+version: 2 
+
+sources:
+  - name: stg__crashes
+
+models:
+  - name: int__crashes
+    columns:
+      - name: crash_id 
+        tests: 
+          - unique 
+          - not_null
+      - name: crime_id 
+        tests: 
+          - unique
+          - not_null 
+      - name: total_vehicles 
+      - name: total_bicycles 
+      - name: total_pedestrians 
+      - name: total_taxis
+      - name: total_government
+      - name: major_injuries__cyclist
+      - name: minor_injuries__cyclist
+      - name: unknown_injuries__cyclist
+      - name: fatal__cyclist
+      - name: major_injuries__driver
+      - name: minor_injuries__driver
+      - name: unknown_injuries__driver
+      - name: fatal__driver
+      - name: major_injuries__pedestrian
+      - name: minor_injuries__pedestrian
+      - name: unknown_injuries__pedestrian
+      - name: major_injuries__passenger
+      - name: minor_injuries__passenger
+      - name: unknown_injuries__passenger
+      - name: fatal__passenger
+      - name: pedestrians_impaired
+      - name: cyclists_impaired
+      - name: drivers_impaired
+      - name: speeding_involved
+      - name: geo__address
+      - name: geo__ward
+      - name: geo__street_seg_id
+      - name: geo__roadway_seg_id
+      - name: geo__latitude
+      - name: geo__longitude
+      - name: geo__x_coord
+      - name: geo__y_coord
+      - name: geo__nearest_int_route_id
+      - name: geo__nearest_int_street_name
+      - name: geo__off_intersection
