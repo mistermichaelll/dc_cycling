@@ -8,7 +8,7 @@ dc_crashes_raw <- get_dc_crashes_data(offset = find_offset(conn, "dc_open_data_r
 vision_zero_raw <- get_vision_zero_data(offset = find_offset(conn, "dc_open_data_raw.vision_zero"))
 
 dc_crashes_clean_names <- dc_crashes_raw |> 
-  select(
+  dplyr::select(
     object_id = OBJECTID, 
     crime_id = CRIMEID, 
     ccn = CCN, 
@@ -39,6 +39,7 @@ dc_crashes_clean_names <- dc_crashes_raw |>
     major_injuries__pedestrian = MAJORINJURIES_PEDESTRIAN, 
     minor_injuries__pedestrian = MINORINJURIES_PEDESTRIAN, 
     unknown_injuries__pedestrian = UNKNOWNINJURIES_PEDESTRIAN,
+    fatal__pedestrian = FATAL_PEDESTRIAN,
     major_injuries__passenger = MAJORINJURIESPASSENGER, 
     minor_injuries__passenger = MINORINJURIESPASSENGER, 
     unknown_injuries__passenger = UNKNOWNINJURIESPASSENGER, 
@@ -66,7 +67,7 @@ dc_crashes_clean_names <- dc_crashes_raw |>
   )
 
 vision_zero_clean_names <- vision_zero_data_raw |> 
-  rename(
+  dplyr::rename(
     object_id = OBJECTID, 
     global_id = GLOBALID, 
     request_id = REQUESTID, 
