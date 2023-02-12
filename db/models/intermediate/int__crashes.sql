@@ -21,6 +21,7 @@ SELECT
   major_injuries__pedestrian,
   minor_injuries__pedestrian,
   unknown_injuries__pedestrian,
+  fatal__pedestrian,
   major_injuries__passenger,
   minor_injuries__passenger,
   unknown_injuries__passenger,

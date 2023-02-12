@@ -30,6 +30,7 @@ models:
       - name: major_injuries__pedestrian
       - name: minor_injuries__pedestrian
       - name: unknown_injuries__pedestrian
+      - name: fatal__pedestrian
       - name: major_injuries__passenger
       - name: minor_injuries__passenger
       - name: unknown_injuries__passenger
