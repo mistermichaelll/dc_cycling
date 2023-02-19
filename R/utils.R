@@ -38,5 +38,5 @@ find_offset <- function(conn, table_name) {
     paste("SELECT COUNT(*) FROM", table_name, sep = " ")
   )
   
-  result |> pull()
+  pull(result)
 }
