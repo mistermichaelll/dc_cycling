@@ -16,8 +16,8 @@ dc_crashes_clean_names <- dc_crashes_raw |>
     route_id = ROUTEID, 
     measure = MEASURE, 
     offset = OFFSET, 
-    street_seg_id = STREETSEGID, 
-    roadway_seg_id = ROADWAYSEGID, 
+    #street_seg_id = STREETSEGID, 
+    #roadway_seg_id = ROADWAYSEGID, 
     from_date = FROMDATE, 
     address = ADDRESS, 
     latitude = LATITUDE, 
@@ -25,7 +25,7 @@ dc_crashes_clean_names <- dc_crashes_raw |>
     x_coord = XCOORD, 
     y_coord = YCOORD, 
     ward = WARD, 
-    event_id = EVENTID, 
+    #event_id = EVENTID, 
     mar_address = MAR_ADDRESS, 
     mar_score = MAR_SCORE, 
     major_injuries__bicyclist = MAJORINJURIES_BICYCLIST, 
@@ -61,8 +61,8 @@ dc_crashes_clean_names <- dc_crashes_raw |>
     last_update_date = LASTUPDATEDATE, 
     mpd_latitude = MPDLATITUDE, 
     mpd_longitude = MPDLONGITUDE, 
-    mpd_geo_x = MPDGEOX, 
-    mpd_geo_y = MPDGEOY
+    #mpd_geo_x = MPDGEOX, 
+    #mpd_geo_y = MPDGEOY
   )
 
 vision_zero_clean_names <- vision_zero_data_raw |> 

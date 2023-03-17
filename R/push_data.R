@@ -5,7 +5,7 @@ conn |>
   write_to_db(
     table_name = "crashes", 
     dc_crashes_clean_names, 
-    overwrite = TRUE
+    append = TRUE
   )
 
 conn |> 

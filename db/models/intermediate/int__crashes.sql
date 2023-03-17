@@ -1,3 +1,10 @@
+WITH rn_table AS (
+  SELECT 
+    *, 
+    ROW_NUMBER() OVER (PARTITION BY crime_id ORDER BY report_date DESC) AS rn
+  FROM {{ ref("raw__crashes") }}
+)
+
 SELECT 
   {{ dbt_utils.generate_surrogate_key(['event_id', 'crime_id']) }} AS crash_id, 
   crime_id, 
@@ -42,5 +49,6 @@ SELECT
   nearest_int_route_id AS geo__nearest_int_route_id, 
   nearest_int_street_name AS geo__nearest_int_street_name, 
   off_intersection AS geo__off_intersection
-FROM {{ ref("raw__crashes") }}
+FROM rn_table
 WHERE EXTRACT(YEAR FROM report_date) <= EXTRACT(YEAR FROM CURRENT_DATE)
+  AND rn = 1
